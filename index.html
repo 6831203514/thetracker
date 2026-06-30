@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A clean, friendly habit tracker built for students. Track daily routines, build streaks, and stay focused."
+    />
+    <title>TheTracker — Build better habits, one day at a time</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div class="container">
+        <header class="hero">
+          <div class="brand">
+            <!-- Tick-box logo -->
+            <svg
+              class="brand-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+              <polyline points="8 12 11 15 16 9"></polyline>
+            </svg>
+            <span class="brand-name">TheTracker</span>
+          </div>
+          <h1 class="hero-title">Small steps, every day.</h1>
+          <p class="hero-sub">
+            A simple habit tracker to help you stay on top of study sessions,
+            workouts, sleep, and anything else worth showing up for.
+          </p>
+        </header>
+
+        <!-- Today's progress -->
+        <section class="card progress-card" aria-label="Today's progress">
+          <div class="progress-head">
+            <div>
+              <p class="eyebrow">Today</p>
+              <p class="progress-count">
+                <span id="done-count">0</span> /
+                <span id="total-count">0</span> done
+              </p>
+            </div>
+            <p class="muted"><span id="progress-pct">0</span>% complete</p>
+          </div>
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </section>
+
+        <!-- Add habit form -->
+        <form id="habit-form" class="add-form" autocomplete="off">
+          <label class="visually-hidden" for="habit-input">New habit</label>
+          <input
+            id="habit-input"
+            type="text"
+            maxlength="80"
+            placeholder="e.g. Review math notes for 20 minutes"
+          />
+          <button id="add-btn" type="submit" disabled>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-sm"
+              aria-hidden="true"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add
+          </button>
+        </form>
+
+        <!-- Empty state -->
+        <div id="empty-state" class="empty">
+          <p class="empty-title">No habits yet.</p>
+          <p class="muted small">
+            Add your first one above. Start tiny — one page of reading, five
+            push-ups, ten minutes of focus.
+          </p>
+        </div>
+
+        <!-- Habit list -->
+        <ul id="habit-list" class="habit-list" hidden></ul>
+
+        <footer class="foot muted small">
+          Your habits are saved locally on this device.
+        </footer>
+      </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/dates.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
